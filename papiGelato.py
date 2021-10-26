@@ -80,7 +80,7 @@ def programFunction():
 #Programma
 
 print("................................................................................")
-print("Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is")
+print("Welkom bij Papi Gelato")
 print("................................................................................")
 next = input("druk op een knop om door te gaan")
 programFunction()
