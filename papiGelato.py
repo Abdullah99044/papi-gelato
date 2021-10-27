@@ -1,5 +1,6 @@
 #Functions
 
+Bol = "bolletjes"
 def sorryFunction():
     print(".........................")
     print("Sorry dat snap ik niet...")
@@ -26,7 +27,7 @@ def smakenFuction(x):
     z = 1
     for i in range(x):
         while True:
-            print("Welke smaak wilt u voor bolletje nummer?" , z)
+            print("Welke smaak wilt u voor " , Bol , " nummer?" , z)
             print("A) Aardbei")
             print("C) Chocolade")
             print("M) Munt")
@@ -43,6 +44,8 @@ def bonenFunction(x , y , z , i , n , c):
     r2 = y * 1.25
     r3 = z * 0.75
     r4 = i * 1
+    r5 = x * 9.8
+    btw = r5 / 100 * 9
     total = r1 + r2 + r3 + i
     if c == "C" and i > 0.3 :
         n = x
@@ -52,7 +55,17 @@ def bonenFunction(x , y , z , i , n , c):
     print("Bakjes     ", z , " x " " € 0,75   =","€",r3)
     print("Topping    ", n , " x " ,"€",i , "   =","€",r4 )
     print("                          ----- +")
-    print("Total                    =", "€", total)
+    print("Total                    =", "€",float(total))
+
+def zakelijk_bonen(x):
+    r5 = x * 9.8
+    btw = r5 / 100 * 9
+    print("----------[Papi Gelato]----------")
+    print("Liter  ", x , " x " " € 9.8   =","€",r5)
+    print("                          ----- +")
+    print("Total                    =", "€", r5)
+    print("BTW 9%                   =", "€", float(btw))
+
 
 def toppingFunction(i , n , A):
     if  A == "A" :
@@ -79,52 +92,69 @@ def knopF():
 def programFunction():
     while True:
         print(".........................")
-        answer = int(input("Hoeveel bolletjes wilt u? : "))
-        print(".........................")
-        if answer <= 4 :
-            smakenFuction(answer)
-            print("Wilt u deze " , answer , " bolletje(s) in")
-            print("A) een hoorntje? ")
-            print("B) of een bakje?")
-            while True:
-                answer1 = input("A/B")
-                if answer1 == "A":
-                    stap_3_Function(answer , "hoorntje") 
-                    if answer != 0: 
-                        toppingFunction1()
-                        answer2 = input(" : ")
-                        bonenFunction(answer , 1 , 0 , toppingFunction(1 , answer , answer2), 1 , answer2)
-                    eindeFunction()
-                    break          
-                elif answer1 == "B":
-                    stap_3_Function(answer , "bakje")
-                    if answer != 0: 
-                        toppingFunction1()
-                        answer2 = input(" : ")
-                        bonenFunction(answer , 0 , 1 , toppingFunction(2, answer , answer2) , 1  , answer2 )
-                    eindeFunction()
-                    break
-                else:
-                    sorryFunction()
-            break
-        elif answer > 4 and answer <= 8:
-            print("..........................................................")
-            print("Dan krijgt u van mij een bakje met " , answer , "bolletjes")
-            smakenFuction(answer)
-            if answer != 0: 
-                toppingFunction1()
-                answer2 = input(" : ")
-                bonenFunction(answer , 0 , 1 , toppingFunction(2, answer , answer2) , 1  , answer2 )
-            eindeFunction()
-            break
-        elif answer > 8:
-                print("........................................")
-                print("Sorry, zulke grote bakken hebben we niet")
-                print("........................................")
+        print("Bent u")
+        print("1) particulier")
+        print("2) zakelijk")
+        an = input("1/2 :")
+        if an == "1" :
+            global Bol
+            Bol = "Liter"
+            print(".........................")
+            answer = int(input("Hoeveel bolletjes wilt u? : "))
+            print(".........................")
+            if answer <= 4 :
+                smakenFuction(answer) 
+                print("Wilt u deze " , answer , " bolletje(s) in")
+                print("A) een hoorntje? ")
+                print("B) of een bakje?")
+                while True:
+                    answer1 = input("A/B")
+                    if answer1 == "A":
+                        stap_3_Function(answer , "hoorntje") 
+                        if answer != 0: 
+                            toppingFunction1()
+                            answer2 = input(" : ")
+                            bonenFunction(answer , 1 , 0 , toppingFunction(1 , answer , answer2), 1 , answer2)
+                        eindeFunction()
+                        break          
+                    elif answer1 == "B":
+                        stap_3_Function(answer , "bakje")
+                        if answer != 0: 
+                            toppingFunction1()
+                            answer2 = input(" : ")
+                            bonenFunction(answer , 0 , 1 , toppingFunction(2, answer , answer2) , 1  , answer2 )
+                        eindeFunction()
+                        break
+                    else:
+                        sorryFunction()
+                break
+            elif answer > 4 and answer <= 8:
+                print("..........................................................")
+                print("Dan krijgt u van mij een bakje met " , answer , "bolletjes")
+                smakenFuction(answer)
+                if answer != 0: 
+                    toppingFunction1()
+                    answer2 = input(" : ")
+                    bonenFunction(answer , 0 , 1 , toppingFunction(2, answer , answer2) , 1  , answer2 )
+                eindeFunction()
+                break
+            elif answer > 8:
+                    print("........................................")
+                    print("Sorry, zulke grote bakken hebben we niet")
+                    print("........................................")
+                    knopF()
+            else :
+                sorryFunction()
                 knopF()
-        else :
+        elif an == "2":
+            print(".........................")
+            answer = int(input("Hoeveel lite wilt u? : "))
+            print(".........................")
+            smakenFuction(answer)
+            zakelijk_bonen(answer)
+            break
+        else:
             sorryFunction()
-            knopF()
 
 #Programma
 
