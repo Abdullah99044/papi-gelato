@@ -3,7 +3,7 @@
 Bol = "bolletjes"
 def sorryFunction():
     print(".........................")
-    print("Sorry dat snap ik niet...")
+    print("Sorry dat is geen optie die we aanbieden...")
     print(".........................")
 
 def stap_3_Function(n , y ):
@@ -30,17 +30,16 @@ def smakenFuction(x):
             print("Welke smaak wilt u voor " , Bol , " nummer?" , z)
             print("A) Aardbei")
             print("C) Chocolade")
-            print("M) Munt")
             print("V) Vanille?")
-            k = input("A , C , M , OF V ? : ")
-            if k == "A" or "C" or "M" or "V" :
+            k = input("A , C , OF V ? : ")
+            if k == "A" or "C" or "V" :
                 z += 1
                 break
             else:
                 print("Sorry dat snap ik niet...")
 
 def bonenFunction(x , y , z , i , n , c):
-    r1 = x * 1.10
+    r1 = x * 0,95
     r2 = y * 1.25
     r3 = z * 0.75
     r4 = i * 1
@@ -50,7 +49,7 @@ def bonenFunction(x , y , z , i , n , c):
     if c == "C" and i > 0.3 :
         n = x
     print("----------[Papi Gelato]----------")
-    print("Bolletjes  ", x , " x " " € 1,10   =","€",r1)
+    print("Bolletjes  ", x , " x " " € 0,95   =","€",r1)
     print("Horrentjes ", y , " x " " € 1,25   =","€",r2 )
     print("Bakjes     ", z , " x " " € 0,75   =","€",r3)
     print("Topping    ", n , " x " ,"€",i , "   =","€",r4 )
@@ -59,12 +58,12 @@ def bonenFunction(x , y , z , i , n , c):
 
 def zakelijk_bonen(x):
     r5 = x * 9.8
-    btw = r5 / 100 * 9
+    btw = r5 / 100 * 6
     print("----------[Papi Gelato]----------")
     print("Liter  ", x , " x " " € 9.8   =","€",r5)
     print("                          ----- +")
     print("Total                    =", "€", r5)
-    print("BTW 9%                   =", "€", float(btw))
+    print("BTW 6%                   =", "€", float(btw))
 
 
 def toppingFunction(i , n , A):
@@ -97,8 +96,6 @@ def programFunction():
         print("2) zakelijk")
         an = input("1/2 :")
         if an == "1" :
-            global Bol
-            Bol = "Liter"
             print(".........................")
             answer = int(input("Hoeveel bolletjes wilt u? : "))
             print(".........................")
@@ -147,6 +144,8 @@ def programFunction():
                 sorryFunction()
                 knopF()
         elif an == "2":
+            global Bol
+            Bol = "Liter"
             print(".........................")
             answer = int(input("Hoeveel lite wilt u? : "))
             print(".........................")
