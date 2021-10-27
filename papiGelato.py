@@ -39,12 +39,10 @@ def smakenFuction(x):
                 print("Sorry dat snap ik niet...")
 
 def bonenFunction(x , y , z , i , n , c):
-    r1 = x * 0,95
+    r1 = x * 0.95
     r2 = y * 1.25
     r3 = z * 0.75
     r4 = i * 1
-    r5 = x * 9.8
-    btw = r5 / 100 * 9
     total = r1 + r2 + r3 + i
     if c == "C" and i > 0.3 :
         n = x
