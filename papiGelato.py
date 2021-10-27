@@ -1,7 +1,8 @@
 #Functions
 
-Bol = "bolletjes"
-def sorryFunction():
+Bol = "bolletjes" #Global scope
+
+def sorryFunction(): #Print dit zin als de klant heeft iets fout gekozen
     print(".........................")
     print("Sorry dat is geen optie die we aanbieden...")
     print(".........................")
@@ -9,21 +10,21 @@ def sorryFunction():
 def stap_3_Function(n , y ):
     print("Hier is uw " , y , " met " , n , "bolletje(s)" )
 
-def eindeFunction():
-    print("Wilt u nog meer bestellen?")
+def eindeFunction(): #Dit function laat de klant nog een keer bestellen
+    print("Wilt u nog meer bestellen?") 
     while True: 
-        answer = input("(Y/N) :")  
-        if answer == "Y" :
+        answer5 = input("(Y/N) :")  
+        if answer5 == "Y" :
             print("....................")
             print("Terug naar het begin")
             programFunction()  
-        elif answer == "N" :
+        elif answer5 == "N" :
             print("Bedankt en tot ziens!") 
             return  
         else :
             sorryFunction()      
 
-def smakenFuction(x):
+def smakenFuction(x): #Hier zit de smaken 
     z = 1
     for i in range(x):
         while True:
@@ -38,7 +39,7 @@ def smakenFuction(x):
             else:
                 print("Sorry dat snap ik niet...")
 
-def bonenFunction(x , y , z , i , n , c):
+def bonenFunction(x , y , z , i , n , c): #Dit function reken de prijzen om een bonen te maken 
     r1 = x * 0.95
     r2 = y * 1.25
     r3 = z * 0.75
@@ -54,7 +55,7 @@ def bonenFunction(x , y , z , i , n , c):
     print("                          ----- +")
     print("Total                    =", "€",float(total))
 
-def zakelijk_bonen(x):
+def zakelijk_bonen(x): #Zakelijk bonen
     r5 = x * 9.8
     btw = r5 / 100 * 6
     print("----------[Papi Gelato]----------")
@@ -62,9 +63,12 @@ def zakelijk_bonen(x):
     print("                          ----- +")
     print("Total                    =", "€", r5)
     print("BTW 6%                   =", "€", float(btw))
+    return
 
-
-def toppingFunction(i , n , A):
+def knopF():
+    TreugGaan = input("Druk op een knop om treug te gaan naar het begin")
+    
+def toppingFunction(i , n , A): #Dit function output de prijs van topping
     if  A == "A" :
         return 0
     elif A == "B" :
@@ -76,17 +80,14 @@ def toppingFunction(i , n , A):
     elif A == "D" and i == 1:
         return 0.6
     
-def toppingFunction1():
+def toppingFunction1(): #Dit is topping lijst
     print("Wat voor topping wilt u: ")
     print(" A) Geen ")
     print(" B) Slagroom" )
     print(" C) Sprinkels ( prijs x aantal bolletjes ")
     print(" D) Caramel Saus ")
 
-def knopF():
-    a = input("Druk op een knop om terug te gaan naar het begin")
-
-def programFunction():
+def programFunction(): #Het programma
     while True:
         print(".........................")
         print("Bent u")
@@ -152,6 +153,7 @@ def programFunction():
             break
         else:
             sorryFunction()
+            knopF()
 
 #Programma
 
